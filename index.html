@@ -1,4 +1,121 @@
+<!DOCTYPE html>
+<html>
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7508345679159794"
+    <title>Tic Tac Toe</title>
+    <style>
+        body { background-color: black; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; flex-direction: column; }
+        #board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .cell { width: 60px; height: 60px; border: 1px solid white; text-align: center; line-height: 60px; font-size: 20px; }
+        #restart { position: absolute; top: 10px; right: 10px; color: black; }
+        #message { margin-bottom: 20px; }
+        #container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        #score { margin-bottom: 20px; }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7508345679159794"
      crossorigin="anonymous"></script>
 </head>
+<body>
+    <div id="container">
+        <div id="score">Player: 0 AI: 0</div>
+        <div id="message"></div>
+        <div id="board"></div>
+    </div>
+    <button id="restart" onclick="restartGame()">Restart Game</button>
+
+    <script>
+        var board = Array(9).fill(null);
+        var currentPlayer = 'X';
+        var playerScore = 0;
+        var aiScore = 0;
+        var lastAIMove = null;
+        var winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],  // rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],  // columns
+            [0, 4, 8], [2, 4, 6]               // diagonals
+        ];
+
+        function drawBoard() {
+            document.getElementById('board').innerHTML = 
+                board.map((cell, index) => `<div class="cell" onclick="makeMove(${index})">${cell || ''}</div>`).join('');
+        }
+
+        function makeMove(index) {
+            if (board[index] !== null) return;
+            board[index] = currentPlayer;
+            drawBoard();
+            if (checkWin(currentPlayer)) {
+                document.getElementById('message').textContent = currentPlayer + ' wins!';
+                if (currentPlayer === 'X') {
+                    playerScore++;
+                } else {
+                    aiScore++;
+                }
+                document.getElementById('score').textContent = 'Player: ' + playerScore + ' AI: ' + aiScore;
+                setTimeout(restartGame, 500);
+                return;
+            }
+            if (isStalemate()) {
+                document.getElementById('message').textContent = 'Stalemate!';
+                setTimeout(restartGame, 500);
+                return;
+            }
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            if (currentPlayer === 'O') setTimeout(makeAIMove, 250);
+        }
+
+        function makeAIMove() {
+            var winningMove = getWinningMove('O');
+            if (winningMove !== null) {
+                makeMove(winningMove);
+                return;
+            }
+            var defensiveMove = getWinningMove('X');
+            if (defensiveMove !== null) {
+                makeMove(defensiveMove);
+                return;
+            }
+            var preferredMoves = [4, 0, 2, 6, 8, 1, 3, 5, 7];
+            for (var i = 0; i < preferredMoves.length; i++) {
+                if (preferredMoves[i] !== lastAIMove && board[preferredMoves[i]] === null) {
+                    lastAIMove = preferredMoves[i];
+                    makeMove(preferredMoves[i]);
+                    break;
+                }
+            }
+        }
+
+        function getWinningMove(player) {
+            for (var i = 0; i < board.length; i++) {
+                if (board[i] === null) {
+                    board[i] = player;
+                    var win = checkWin(player);
+                    board[i] = null;
+                    if (win) {
+                        return i;
+                    }
+                }
+            }
+            return null;
+        }
+
+        function checkWin(player) {
+            return winningCombinations.some(combination =>
+                combination.every(index => board[index] === player)
+            );
+        }
+
+        function isStalemate() {
+            return board.every(cell => cell !== null);
+        }
+
+        function restartGame() {
+            board = Array(9).fill(null);
+            currentPlayer = 'X';
+            document.getElementById('message').textContent = '';
+            drawBoard();
+        }
+
+        drawBoard();
+    </script>
+</body>
+</html>
