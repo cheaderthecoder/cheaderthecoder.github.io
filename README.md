@@ -1,7 +1,7 @@
 # 5-Letter-Words
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/cheaderthecoder/5-Letter-words)
-![GitHub top language](https://img.shields.io/github/languages/top/cheaderthecoder/5-Letter-words)
-![LICENSE](https://img.shields.io/github/license/cheaderthecoder/5-Letter-words)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/darkermango/5-Letter-words)
+![GitHub top language](https://img.shields.io/github/languages/top/darkermango/5-Letter-words)
+![LICENSE](https://img.shields.io/github/license/darkermango/5-Letter-words)
 
 A collection of five-letter English words, available in both JSON and TXT format, designed for seamless integration into your project(s). This repository offers an easily accessible list of five-letter words, ideal for word games, educational resources, and various other applications, with an extra c# script to convert txt to json thrown in 😉.
 
@@ -17,7 +17,7 @@ A collection of five-letter English words, available in both JSON and TXT format
 
 
 ## Usage
-You can easily integrate this word list into your projects by accessing either the TXT or JSON endpoints or by downloading the files locally. Below are some examples of how to read, use and sometimes fetch the word list endpoint in your application. For quick access to relevant links and further details, checkout the [resource page](https://cheaderthecoder.github.io/5-Letter-words/).
+You can easily integrate this word list into your projects by accessing either the TXT or JSON endpoints or by downloading the files locally. Below are some examples of how to read, use and sometimes fetch the word list endpoint in your application. For quick access to relevant links and further details, checkout the [resource page](https://darkermango.github.io/5-Letter-words/).
 
 >[!Note]
 > You don't have to use the endpoint(s) to get the word list; but instead you can download the words locally and access them from there. This is much faster than using the endpoints and much more reliable as the file never fails to fetch. if all you want to do is access the words, I would recommend you download the word list locally.
@@ -25,14 +25,14 @@ You can easily integrate this word list into your projects by accessing either t
 ## Endpoints
 You can access the list of words through the following endpoints:
 
-- **TXT Format:** [words.txt](https://cheaderthecoder.github.io/5-Letter-words/words.txt)
-- **JSON Format:** [words.json](https://cheaderthecoder.github.io/5-Letter-words/words.json)
+- **TXT Format:** [words.txt](https://darkermango.github.io/5-Letter-words/words.txt)
+- **JSON Format:** [words.json](https://darkermango.github.io/5-Letter-words/words.json)
 
 ## Downloads
 Instead of using a endpoint you can download the files locally at:
 
-- **TXT Format:** [Download words.txt](https://github.com/cheaderthecoder/5-Letter-words/blob/main/words.txt)
-- **JSON Format:** [Download words.json](https://github.com/cheaderthecoder/5-Letter-words/blob/main/words.txt)
+- **TXT Format:** [Download words.txt](https://github.com/darkermango/5-Letter-words/blob/main/words.txt)
+- **JSON Format:** [Download words.json](https://github.com/darkermango/5-Letter-words/blob/main/words.txt)
 
 
 ### Examples
@@ -43,7 +43,7 @@ Fetching the JSON Data from the endpoint
 ```python
 import requests
 
-url = "https://cheaderthecoder.github.io/5-Letter-words/words.json"
+url = "https://darkermango.github.io/5-Letter-words/words.json"
 response = requests.get(url)
 words = response.json()
 
@@ -84,7 +84,7 @@ Fetching the TXT Data from the endpoint
 
 ```js
 // URL of the TXT file
-const url = 'https://cheaderthecoder.github.io/5-Letter-words/words.txt';
+const url = 'https://darkermango.github.io/5-Letter-words/words.txt';
 
 // Fetch the TXT file
 fetch(url)
@@ -139,6 +139,6 @@ A list of Repo's/projects that helped me in someway
 
 ## License
 This project is licensed under the [MIT License](https://opensource.org/license/mit)
-License - see the <a href="https://github.com/cheaderthecoder/5-Letter-words/blob/main/LICENSE" target="_blank">LICENSE</a> file for
+License - see the <a href="https://github.com/darkermango/5-Letter-words/blob/main/LICENSE" target="_blank">LICENSE</a> file for
 details
 
