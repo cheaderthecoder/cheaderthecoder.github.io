@@ -115,22 +115,12 @@ fetch(url)
 ## Script
 This script converts a list of words from a text file into a JSON file format. It fetches a text file containing a list of five-letter words from a specified URL, processes the content, and saves it as a JSON file.
 
-#### Overview
 
-    Language: C#
-    Dependencies:
-        Newtonsoft.Json
-        .NET Core or .NET Framework
-
-#### Features
-
-    Fetches data from a remote text file using HttpClient.
-    Converts the list of words to a JSON format using JsonConvert.SerializeObject.
-    Saves the JSON output to a file named words.json.
+---
 
 
 ## Acknowledgements
-A list of Repo's/projects that helped me in someway
+A list of Repo's/projects that helped this project in some way
 
  - [Original Repo](https://github.com/charlesreid1/five-letter-words)
  - [Original TXT file](https://github.com/charlesreid1/five-letter-words/blob/master/sgb-words.txt)
@@ -139,6 +129,6 @@ A list of Repo's/projects that helped me in someway
 
 ## License
 This project is licensed under the [MIT License](https://opensource.org/license/mit)
-License - see the <a href="https://github.com/darkermango/5-Letter-words/blob/main/LICENSE" target="_blank">LICENSE</a> file for
+License. See the <a href="https://github.com/darkermango/5-Letter-words/blob/main/LICENSE" target="_blank">LICENSE</a> file for
 details
 
