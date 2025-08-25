@@ -8,7 +8,7 @@ public class TXTtoJSON
         using (HttpClient client = new HttpClient())
         {
             Console.WriteLine("Connecting");
-            string content = await client.GetStringAsync("https://cheaderthecoder.github.io/5-Letter-words/words.txt");
+            string content = await client.GetStringAsync("https://darkermango.github.io/5-Letter-words/words.txt");
             string[] lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             List<string> wordList = lines.ToList();
